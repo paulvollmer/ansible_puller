@@ -115,6 +115,9 @@ var _ = Describe("Download", func() {
 
 				modtime := finfo.ModTime()
 
+				// wait a few milliseconds
+				time.Sleep(50*time.Millisecond)
+				
 				// Idempotent Download
 				err = idempotentFileDownload(testServer.URL+"/"+testFilename, testFilename, "", "")
 				Expect(err).To(BeNil())
@@ -176,7 +179,7 @@ var _ = Describe("Download", func() {
 
 				// wait a few milliseconds
 				time.Sleep(50*time.Millisecond)
-				
+
 				// Idempotent Download
 				err = idempotentFileDownload(testServer.URL+"/"+testHashlessFilename, testHashlessFilename, "", "")
 				Expect(err).To(BeNil())
