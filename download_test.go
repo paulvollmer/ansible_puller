@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"time"
@@ -116,8 +115,8 @@ var _ = Describe("Download", func() {
 				modtime := finfo.ModTime()
 
 				// wait a few milliseconds
-				time.Sleep(50*time.Millisecond)
-				
+				time.Sleep(50 * time.Millisecond)
+
 				// Idempotent Download
 				err = idempotentFileDownload(testServer.URL+"/"+testFilename, testFilename, "", "")
 				Expect(err).To(BeNil())
@@ -145,7 +144,7 @@ var _ = Describe("Download", func() {
 				modtime := finfo.ModTime()
 
 				// wait a few milliseconds
-				time.Sleep(50*time.Millisecond)
+				time.Sleep(50 * time.Millisecond)
 
 				// Idempotent Download
 				err = idempotentFileDownload(testServer.URL+"/"+testFilename, testFilename, "", "")
@@ -155,9 +154,6 @@ var _ = Describe("Download", func() {
 				newModtime := newFinfo.ModTime()
 
 				// Make sure the file changed
-
-				fmt.Println("===============", modtime)
-				fmt.Println("===============", newModtime)
 				Expect(modtime).NotTo(Equal(newModtime))
 			})
 		})
@@ -178,7 +174,7 @@ var _ = Describe("Download", func() {
 				modtime := finfo.ModTime()
 
 				// wait a few milliseconds
-				time.Sleep(50*time.Millisecond)
+				time.Sleep(50 * time.Millisecond)
 
 				// Idempotent Download
 				err = idempotentFileDownload(testServer.URL+"/"+testHashlessFilename, testHashlessFilename, "", "")
