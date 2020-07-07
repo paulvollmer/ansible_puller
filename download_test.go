@@ -3,12 +3,12 @@ package main
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"time"
 
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"os"
+	"time"
 )
 
 var (
